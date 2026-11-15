@@ -4402,7 +4402,7 @@ code {
   grid-template-columns: 1.35fr 0.65fr;
   background:
     linear-gradient(90deg, #2B160A 0%, rgba(43, 22, 10, 0.96) 42%, rgba(43, 22, 10, 0.74) 66%, rgba(43, 22, 10, 0.35) 100%),
-    url('/back-office-team.png') right center / cover no-repeat;
+    url('/back-office-team.webp') right center / cover no-repeat;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;

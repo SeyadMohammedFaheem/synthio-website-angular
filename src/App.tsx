@@ -41,12 +41,12 @@ const integrationsList: {
   fg: string
   logo?: string
 }[] = [
-  { name: 'Zapier', category: 'automation', mark: 'Zp', bg: '#FF4A00', fg: '#FFFFFF', blurb: 'Fire any downstream workflow the moment a conversation resolves.', sync: 'Triggers, payloads, retries', logo: '/zapier.png' },
-  { name: 'WhatsApp', category: 'inbox', mark: 'Wa', bg: '#128C7E', fg: '#FFFFFF', blurb: 'Keep Business API threads on the same agent that handles the phone.', sync: 'Threads, templates, media', logo: '/whatsapp.png' },
-  { name: 'Slack', category: 'automation', mark: 'Sl', bg: '#4A154B', fg: '#FFFFFF', blurb: 'Post the handoff into the channel that owns the account, with the transcript.', sync: 'Channels, threads, mentions', logo: '/slack.png' },
-  { name: 'Mail (Gmail)', category: 'inbox', mark: 'Gm', bg: '#EA4335', fg: '#FFFFFF', blurb: 'Read the thread, draft the reply, and send it in your brand voice.', sync: 'Threads, drafts, labels', logo: '/mail.png' },
-  { name: 'Salesforce', category: 'crm', mark: 'Sf', bg: '#00A1E0', fg: '#FFFFFF', blurb: 'Write the call, the contact, and the case back while it is still live.', sync: 'Contacts, cases, activities', logo: '/salesforce.png' },
-  { name: 'Zendesk', category: 'support', mark: 'Zd', bg: '#03363D', fg: '#FFFFFF', blurb: 'Open, update, and close the ticket without a second screen.', sync: 'Tickets, macros, CSAT', logo: '/zendesk.png' },
+  { name: 'Zapier', category: 'automation', mark: 'Zp', bg: '#FF4A00', fg: '#FFFFFF', blurb: 'Fire any downstream workflow the moment a conversation resolves.', sync: 'Triggers, payloads, retries', logo: '/zapier.webp' },
+  { name: 'WhatsApp', category: 'inbox', mark: 'Wa', bg: '#128C7E', fg: '#FFFFFF', blurb: 'Keep Business API threads on the same agent that handles the phone.', sync: 'Threads, templates, media', logo: '/whatsapp.webp' },
+  { name: 'Slack', category: 'automation', mark: 'Sl', bg: '#4A154B', fg: '#FFFFFF', blurb: 'Post the handoff into the channel that owns the account, with the transcript.', sync: 'Channels, threads, mentions', logo: '/slack.webp' },
+  { name: 'Mail (Gmail)', category: 'inbox', mark: 'Gm', bg: '#EA4335', fg: '#FFFFFF', blurb: 'Read the thread, draft the reply, and send it in your brand voice.', sync: 'Threads, drafts, labels', logo: '/mail.webp' },
+  { name: 'Salesforce', category: 'crm', mark: 'Sf', bg: '#00A1E0', fg: '#FFFFFF', blurb: 'Write the call, the contact, and the case back while it is still live.', sync: 'Contacts, cases, activities', logo: '/salesforce.webp' },
+  { name: 'Zendesk', category: 'support', mark: 'Zd', bg: '#03363D', fg: '#FFFFFF', blurb: 'Open, update, and close the ticket without a second screen.', sync: 'Tickets, macros, CSAT', logo: '/zendesk.webp' },
 ]
 
 const faqItems = [
@@ -125,9 +125,12 @@ function Navbar() {
         <div className="coda-nav-left">
           <a className="coda-brand-logo" href="#top" aria-label="Synthio home">
             <img
-              src={navTheme === 'white' ? '/logos/logo-on-white.png' : '/logos/logo-on-blue.png'}
+              src={navTheme === 'white' ? '/logos/logo-on-white.webp' : '/logos/logo-on-blue.webp'}
               alt="Synthio"
               className="coda-brand-img"
+              width={112}
+              height={32}
+              decoding="async"
             />
           </a>
         </div>
@@ -679,12 +682,16 @@ function Hero() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Background Hill (bottom.png) - Layer 1: Behind Dashboard */}
+        {/* Background Hill (bottom.webp) - Layer 1: Behind Dashboard */}
         <div className="hero-hills-back-wrap" aria-hidden="true">
           <img
-            src="/bottom.png"
+            src="/bottom.webp"
             alt=""
             className="hero-hill-img hero-hill-back"
+            width={3840}
+            height={1200}
+            fetchPriority="high"
+            decoding="async"
             style={{
               transform: `translateX(calc(-50% + ${mouseOffset.x * 12}px)) translateY(${mouseOffset.y * 6}px)`,
             }}
@@ -1120,12 +1127,16 @@ function Hero() {
           </div>
         </div>
 
-        {/* Layer 3: Foreground Hill (top.png) - ON TOP of the dashboard */}
+        {/* Layer 3: Foreground Hill (top.webp) - ON TOP of the dashboard */}
         <div className="hero-hills-front-wrap" aria-hidden="true">
           <img
-            src="/top.png"
+            src="/top.webp"
             alt=""
             className="hero-hill-img hero-hill-front"
+            width={3840}
+            height={1200}
+            fetchPriority="high"
+            decoding="async"
             style={{
               transform: `translateX(calc(-50% + ${mouseOffset.x * 24}px)) translateY(${mouseOffset.y * 12}px)`,
             }}
@@ -1152,6 +1163,7 @@ function Hero() {
                     className="customer-logo-img"
                     style={{ height: `${logo.height}px` }}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -1165,6 +1177,7 @@ function Hero() {
                     className="customer-logo-img"
                     style={{ height: `${logo.height}px` }}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -1384,7 +1397,7 @@ const EVERYTHING_TABS = [
     id: 'voice',
     title: 'Voice AI agents',
     desc: 'Deploy AI agents that handle inbound and outbound calls 24/7. 2.4M calls resolved autonomously in 2025.',
-    backdrop: '/travel-backdrop.png',
+    backdrop: '/travel-backdrop.webp',
     card: {
       label: 'Live call handled',
       title: 'Inbound · Support Queue',
@@ -1400,7 +1413,7 @@ const EVERYTHING_TABS = [
     id: 'email',
     title: 'Email automation',
     desc: 'AI agents that read, draft, and send contextual email replies. 89% faster response times across teams.',
-    backdrop: '/spend-backdrop.png',
+    backdrop: '/spend-backdrop.webp',
     card: {
       label: 'Auto-drafted reply',
       title: 'RE: Invoice #4821 overdue',
@@ -1416,7 +1429,7 @@ const EVERYTHING_TABS = [
     id: 'workflows',
     title: 'Conversation workflows',
     desc: 'Build multi-step conversation flows across channels — chat, SMS, WhatsApp, and voice — in one builder.',
-    backdrop: '/group-backdrop.png',
+    backdrop: '/group-backdrop.webp',
     card: {
       label: 'Workflow completed',
       title: 'Onboarding · New customer',
@@ -1432,7 +1445,7 @@ const EVERYTHING_TABS = [
     id: 'analytics',
     title: 'Unified analytics',
     desc: 'Track every conversation, measure agent performance, and surface insights — all from a single dashboard.',
-    backdrop: '/sunset-backdrop.png',
+    backdrop: '/sunset-backdrop.webp',
     card: {
       label: 'Weekly report',
       title: '12,847 conversations',
@@ -1500,6 +1513,8 @@ function EverythingSection() {
                 alt=""
                 className="everything-stage-backdrop"
                 key={current.backdrop}
+                loading="lazy"
+                decoding="async"
               />
               <div className="everything-floating-card">
                 <div className="floating-card-label">{current.card.label}</div>
@@ -1580,7 +1595,7 @@ function IntegrationsSection() {
               <div className="connect-card-top">
                 {item.logo ? (
                   <span className="connect-mark connect-mark-lg connect-mark-has-img">
-                    <img src={item.logo} alt={item.name} className="connect-logo-img" />
+                    <img src={item.logo} alt={item.name} className="connect-logo-img" loading="lazy" decoding="async" />
                   </span>
                 ) : (
                   <span className="connect-mark connect-mark-lg" style={{ background: item.bg, color: item.fg }}>
@@ -2137,12 +2152,16 @@ function Footer() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background Hill (bottom-footer.png) - Layer 1 */}
+      {/* Background Hill (bottom-footer.webp) - Layer 1 */}
       <div className="footer-hills-back-wrap" aria-hidden="true">
         <img
-          src="/bottom-footer.png"
+          src="/bottom-footer.webp"
           alt=""
           className="footer-hill-img footer-hill-back"
+          width={3840}
+          height={1200}
+          loading="lazy"
+          decoding="async"
           style={{
             transform: `translateX(calc(-50% + ${mouseOffset.x * 12}px)) translateY(${mouseOffset.y * 6}px)`,
           }}
@@ -2156,9 +2175,13 @@ function Footer() {
           <div className="footer-ui-brand">
             <a className="footer-ui-logo-row" href="#top" aria-label="Synthio home">
               <img
-                src="/logos/logo-on-blue.png"
+                src="/logos/logo-on-blue.webp"
                 alt="Synthio"
                 className="footer-brand-img"
+                width={112}
+                height={32}
+                loading="lazy"
+                decoding="async"
               />
             </a>
 
@@ -2236,12 +2259,16 @@ function Footer() {
         </div>
       </div>
 
-      {/* Foreground Hill (top-footer.png) - Layer 3 */}
+      {/* Foreground Hill (top-footer.webp) - Layer 3 */}
       <div className="footer-hills-front-wrap" aria-hidden="true">
         <img
-          src="/top-footer.png"
+          src="/top-footer.webp"
           alt=""
           className="footer-hill-img footer-hill-front"
+          width={3840}
+          height={1200}
+          loading="lazy"
+          decoding="async"
           style={{
             transform: `translateX(calc(-50% + ${mouseOffset.x * 24}px)) translateY(${mouseOffset.y * 12}px)`,
           }}
