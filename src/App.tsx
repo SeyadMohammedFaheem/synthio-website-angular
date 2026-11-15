@@ -1,4 +1,29 @@
-import { useState, useEffect, type FormEvent } from 'react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
+import {
+  PhoneCall,
+  Mail,
+  GitBranch,
+  Radio,
+  Sparkles,
+  ShieldCheck,
+  UserCheck,
+  BookOpen,
+  Headphones,
+  TrendingUp,
+  CreditCard,
+  Cpu,
+  Activity,
+  FileText,
+  Layers,
+  Lock,
+  Award,
+  MessageSquare,
+  Building2,
+  Briefcase,
+  Newspaper,
+  Send,
+  ArrowRight,
+} from 'lucide-react'
 import './landing.css'
 
 /* ─── Data & Constants ─── */
@@ -85,8 +110,43 @@ function BrandLogo() {
 /* ─── Coda-Style End-to-End Navbar ─── */
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeMenu, setActiveMenu] = useState<string | null>('products')
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [navTheme, setNavTheme] = useState<'blue' | 'white'>('blue')
+  const menuTimerRef = useRef<number | null>(null)
+
+  const handleMouseEnter = (menu: string) => {
+    if (window.innerWidth <= 900) return
+    if (menuTimerRef.current) clearTimeout(menuTimerRef.current)
+    setActiveMenu(menu)
+  }
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth <= 900) return
+    menuTimerRef.current = window.setTimeout(() => {
+      setActiveMenu(null)
+    }, 180)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (!target.closest('.coda-nav-center')) {
+        setActiveMenu(null)
+      }
+    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveMenu(null)
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,62 +195,377 @@ function Navbar() {
           </a>
         </div>
 
-        {/* Center: Nav Links with Dropdown Indicators */}
+        {/* Center: Nav Links with Dropdown Menus */}
         <nav className={`coda-nav-center ${mobileOpen ? 'is-open' : ''}`} aria-label="Main navigation">
           {/* Products */}
-          <div className="coda-nav-item">
+          <div
+            className="coda-nav-item"
+            onMouseEnter={() => handleMouseEnter('products')}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               type="button"
               className={`coda-nav-link ${activeMenu === 'products' ? 'has-pill' : ''}`}
               onClick={() => setActiveMenu(activeMenu === 'products' ? null : 'products')}
+              aria-expanded={activeMenu === 'products'}
             >
               <span>Products</span>
               <svg className="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+
+            {activeMenu === 'products' && (
+              <div className="coda-dropdown-panel coda-dropdown-products" role="menu">
+                <div className="coda-dropdown-grid coda-dropdown-grid-2col">
+                  <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">Core AI Capabilities</p>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-blue">
+                        <PhoneCall size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">
+                          <span>Voice AI Agents</span>
+                          <span className="coda-dropdown-badge">Sub-200ms</span>
+                        </div>
+                        <p className="coda-dropdown-desc">Ultra-low latency conversational agents with human-like interruption handling.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-purple">
+                        <Mail size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Email Automation</div>
+                        <p className="coda-dropdown-desc">Context-aware thread analysis, auto-drafting, and autonomous inbox triage.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-emerald">
+                        <GitBranch size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Conversation Workflows</div>
+                        <p className="coda-dropdown-desc">Visual drag-and-drop orchestration across phone, email, and chat channels.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-cyan">
+                        <Radio size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Native PBX & SIP</div>
+                        <p className="coda-dropdown-desc">Direct connectors for Twilio, Asterisk, Genesys, and enterprise SIP trunks.</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">Intelligence & Control</p>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-amber">
+                        <Sparkles size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Call Summaries & Insights</div>
+                        <p className="coda-dropdown-desc">Instant structured notes, topic clustering, and bi-directional CRM syncing.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-rose">
+                        <ShieldCheck size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Compliance & Redaction</div>
+                        <p className="coda-dropdown-desc">Real-time PII masking, automated compliance scoring, and audit trails.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-indigo">
+                        <UserCheck size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Human-in-the-Loop</div>
+                        <p className="coda-dropdown-desc">Warm handoffs to live reps with full transcript context and zero repetition.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-slate">
+                        <BookOpen size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Knowledge Base Grounding</div>
+                        <p className="coda-dropdown-desc">Real-time synchronization with Salesforce, Zendesk, and internal docs.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="coda-dropdown-footer">
+                  <div className="coda-dropdown-footer-note">⚡ Auto-Negotiated Opus & G.711u Live Telephony Engine</div>
+                  <a href="#demo" className="coda-dropdown-footer-link" onClick={() => setActiveMenu(null)}>
+                    <span>Explore live demo</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Solutions */}
-          <div className="coda-nav-item">
+          <div
+            className="coda-nav-item"
+            onMouseEnter={() => handleMouseEnter('solutions')}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               type="button"
               className={`coda-nav-link ${activeMenu === 'solutions' ? 'has-pill' : ''}`}
               onClick={() => setActiveMenu(activeMenu === 'solutions' ? null : 'solutions')}
+              aria-expanded={activeMenu === 'solutions'}
             >
               <span>Solutions</span>
               <svg className="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+
+            {activeMenu === 'solutions' && (
+              <div className="coda-dropdown-panel coda-dropdown-solutions" role="menu">
+                <div className="coda-dropdown-grid coda-dropdown-grid-2col">
+                  <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">By Team & Function</p>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-blue">
+                        <Headphones size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Customer Support</div>
+                        <p className="coda-dropdown-desc">Resolve 80%+ Tier-1 inquiries autonomously 24/7 with zero wait time.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-emerald">
+                        <TrendingUp size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Inbound Sales</div>
+                        <p className="coda-dropdown-desc">Instant lead qualification, intent routing, and calendar booking.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-amber">
+                        <CreditCard size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Billing & Accounts</div>
+                        <p className="coda-dropdown-desc">Automate payment reminders, invoice questions, and dispute handling.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-indigo">
+                        <Cpu size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Internal IT & Ops</div>
+                        <p className="coda-dropdown-desc">Employee helpdesk, access approvals, and autonomous troubleshooting.</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">By Industry</p>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-purple">
+                        <Lock size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Financial Services</div>
+                        <p className="coda-dropdown-desc">Bank-grade security, fraud notifications, and PCI-DSS compliance.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-rose">
+                        <Activity size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Healthcare & Clinics</div>
+                        <p className="coda-dropdown-desc">HIPAA-compliant patient appointment scheduling and triage routing.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-cyan">
+                        <Layers size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">E-Commerce & Retail</div>
+                        <p className="coda-dropdown-desc">Instant shipping updates, order exchanges, and return logistics.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-slate">
+                        <FileText size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">High-Growth SaaS</div>
+                        <p className="coda-dropdown-desc">Scale customer success without adding headcount during peak volume.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Resources */}
-          <div className="coda-nav-item">
+          <div
+            className="coda-nav-item"
+            onMouseEnter={() => handleMouseEnter('resources')}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               type="button"
               className={`coda-nav-link ${activeMenu === 'resources' ? 'has-pill' : ''}`}
               onClick={() => setActiveMenu(activeMenu === 'resources' ? null : 'resources')}
+              aria-expanded={activeMenu === 'resources'}
             >
               <span>Resources</span>
               <svg className="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+
+            {activeMenu === 'resources' && (
+              <div className="coda-dropdown-panel coda-dropdown-resources" role="menu">
+                <div className="coda-dropdown-grid coda-dropdown-grid-2col">
+                  <div className="coda-dropdown-col">
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-blue">
+                        <FileText size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Documentation</div>
+                        <p className="coda-dropdown-desc">API references, webhooks, SIP connectors, and quickstart guides.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-amber">
+                        <Award size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Customer Stories</div>
+                        <p className="coda-dropdown-desc">How engineering teams achieved 89% faster resolution with Synthio.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-purple">
+                        <Layers size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Integrations Directory</div>
+                        <p className="coda-dropdown-desc">100+ native connectors for Salesforce, Zendesk, Slack, and Zapier.</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div className="coda-dropdown-col">
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-rose">
+                        <Lock size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Trust & Security</div>
+                        <p className="coda-dropdown-desc">SOC-2 Type II certified, GDPR compliant, with full data sovereignty.</p>
+                      </div>
+                    </a>
+                    <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-emerald">
+                        <Sparkles size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">Changelog</div>
+                        <p className="coda-dropdown-desc">Read about our latest voice models, audio improvements, and updates.</p>
+                      </div>
+                    </a>
+                    <a href="#faq" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                      <div className="coda-dropdown-icon icon-indigo">
+                        <MessageSquare size={18} />
+                      </div>
+                      <div className="coda-dropdown-text">
+                        <div className="coda-dropdown-title">FAQ & Support</div>
+                        <p className="coda-dropdown-desc">Frequently asked questions and 24/7 technical customer support.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Company */}
-          <div className="coda-nav-item">
+          <div
+            className="coda-nav-item"
+            onMouseEnter={() => handleMouseEnter('company')}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               type="button"
               className={`coda-nav-link ${activeMenu === 'company' ? 'has-pill' : ''}`}
               onClick={() => setActiveMenu(activeMenu === 'company' ? null : 'company')}
+              aria-expanded={activeMenu === 'company'}
             >
               <span>Company</span>
               <svg className="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+
+            {activeMenu === 'company' && (
+              <div className="coda-dropdown-panel coda-dropdown-company" role="menu">
+                <div className="coda-dropdown-col">
+                  <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                    <div className="coda-dropdown-icon icon-blue">
+                      <Building2 size={18} />
+                    </div>
+                    <div className="coda-dropdown-text">
+                      <div className="coda-dropdown-title">About Synthio</div>
+                      <p className="coda-dropdown-desc">Our mission to give every team autonomous conversation intelligence.</p>
+                    </div>
+                  </a>
+                  <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                    <div className="coda-dropdown-icon icon-emerald">
+                      <Briefcase size={18} />
+                    </div>
+                    <div className="coda-dropdown-text">
+                      <div className="coda-dropdown-title">
+                        <span>Careers</span>
+                        <span className="coda-dropdown-badge">We're Hiring</span>
+                      </div>
+                      <p className="coda-dropdown-desc">Join our distributed engineering, AI research, and design teams.</p>
+                    </div>
+                  </a>
+                  <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                    <div className="coda-dropdown-icon icon-purple">
+                      <Newspaper size={18} />
+                    </div>
+                    <div className="coda-dropdown-text">
+                      <div className="coda-dropdown-title">Newsroom & Press</div>
+                      <p className="coda-dropdown-desc">Read our official announcements, media mentions, and brand kit.</p>
+                    </div>
+                  </a>
+                  <a href="#demo" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
+                    <div className="coda-dropdown-icon icon-indigo">
+                      <Send size={18} />
+                    </div>
+                    <div className="coda-dropdown-text">
+                      <div className="coda-dropdown-title">Contact Us</div>
+                      <p className="coda-dropdown-desc">Talk with our enterprise solutions team about custom deployments.</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="coda-nav-item">
