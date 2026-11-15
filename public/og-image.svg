@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="well" cx="50%" cy="45%" r="75%"><stop offset="60%" stop-color="#090909"/><stop offset="100%" stop-color="#f73bda"/></radialGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00d7f7"/><stop offset=".45" stop-color="#f03bd9"/><stop offset=".7" stop-color="#ff8a00"/><stop offset="1" stop-color="#00d7f7"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#090909"/>
+  <rect x="8" y="8" width="1184" height="614" rx="14" fill="none" stroke="url(#edge)" stroke-width="20"/>
+  <ellipse cx="600" cy="315" rx="460" ry="255" fill="#090909"/>
+  <path d="M85 98c0-12 10-21 22-21 4-14 17-22 31-18 12 3 18 14 17 26 9 7 9 20 3 29-6 8-14 11-24 11H107c-13 0-22-10-22-27Z" fill="#fff"/>
+  <circle cx="143" cy="102" r="7" fill="#090909"/>
+  <text x="600" y="254" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="68" font-weight="500" letter-spacing="-3">Your daily list of</text>
+  <text x="600" y="330" fill="#707070" text-anchor="middle" font-family="Arial,sans-serif" font-size="68" font-weight="500" letter-spacing="-3">fresh freelance leads</text>
+  <text x="600" y="384" fill="#aaa" text-anchor="middle" font-family="Arial,sans-serif" font-size="22">Orbi finds leads, so you can focus on doing great work.</text>
+  <rect x="426" y="434" width="348" height="58" rx="15" fill="#ff3825"/>
+  <text x="600" y="472" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600">Join the beta</text>
+</svg>
