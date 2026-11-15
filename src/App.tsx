@@ -225,23 +225,23 @@ function Navbar() {
               <div className="coda-dropdown-panel coda-dropdown-products" role="menu">
                 <div className="coda-dropdown-grid coda-dropdown-grid-2col">
                   <div className="coda-dropdown-col">
-                    <p className="coda-dropdown-section-title">AI Powered</p>
+                    <p className="coda-dropdown-section-title">AI Agents & Voice</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
                       <div className="coda-dropdown-icon">
-                        <FileText size={20} strokeWidth={1.75} />
+                        <PhoneCall size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">AI Content Generator</div>
-                        <p className="coda-dropdown-desc">Publish-ready in minutes</p>
+                        <div className="coda-dropdown-title">Voice AI Agents</div>
+                        <p className="coda-dropdown-desc">Natural phone calls with sub-200ms latency</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
                       <div className="coda-dropdown-icon">
-                        <Megaphone size={20} strokeWidth={1.75} />
+                        <Mail size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Ad Copy Creator</div>
-                        <p className="coda-dropdown-desc">Write Ads that convert</p>
+                        <div className="coda-dropdown-title">Email Automation</div>
+                        <p className="coda-dropdown-desc">Contextual replies and autonomous inbox triage</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
@@ -249,30 +249,30 @@ function Navbar() {
                         <Smile size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Tone Control</div>
-                        <p className="coda-dropdown-desc">Voice that fits</p>
+                        <div className="coda-dropdown-title">Tone & Persona Control</div>
+                        <p className="coda-dropdown-desc">Brand voice that fits every conversation</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
                       <div className="coda-dropdown-icon">
-                        <Pencil size={20} strokeWidth={1.75} />
+                        <Sparkles size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">AI Rewrite</div>
-                        <p className="coda-dropdown-desc">Polished in seconds</p>
+                        <div className="coda-dropdown-title">Instant Call Summaries</div>
+                        <p className="coda-dropdown-desc">Clear insights & CRM sync in seconds</p>
                       </div>
                     </a>
                   </div>
 
                   <div className="coda-dropdown-col">
-                    <p className="coda-dropdown-section-title">Productivity</p>
+                    <p className="coda-dropdown-section-title">Workflows & Platform</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
                       <div className="coda-dropdown-icon">
                         <Users size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Team Collaboration</div>
-                        <p className="coda-dropdown-desc">Create together, seamlessly</p>
+                        <p className="coda-dropdown-desc">Agent queues & human handoffs, seamlessly</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
@@ -280,8 +280,8 @@ function Navbar() {
                         <History size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Smart Autosave</div>
-                        <p className="coda-dropdown-desc">Your work, always safe</p>
+                        <div className="coda-dropdown-title">Smart CRM Auto-Sync</div>
+                        <p className="coda-dropdown-desc">Contacts, tickets, and logs, always safe</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
@@ -289,17 +289,17 @@ function Navbar() {
                         <Boxes size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Drag-and-Drop Blocks</div>
-                        <p className="coda-dropdown-desc">Build content like stacking bricks</p>
+                        <div className="coda-dropdown-title">Conversation Workflows</div>
+                        <p className="coda-dropdown-desc">Build multi-channel flows like stacking blocks</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
                       <div className="coda-dropdown-icon">
-                        <Command size={20} strokeWidth={1.75} />
+                        <Radio size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Keyboard Shortcuts</div>
-                        <p className="coda-dropdown-desc">Write faster with pro controls</p>
+                        <div className="coda-dropdown-title">Native PBX & Telephony</div>
+                        <p className="coda-dropdown-desc">Direct connectors for Twilio, SIP, and Asterisk</p>
                       </div>
                     </a>
                   </div>
