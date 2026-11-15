@@ -1,28 +1,34 @@
 import { useState, useEffect, useRef, type FormEvent } from 'react'
 import {
-  PhoneCall,
-  Mail,
-  GitBranch,
-  Radio,
-  Sparkles,
-  ShieldCheck,
-  UserCheck,
-  BookOpen,
+  FileText,
+  Megaphone,
+  Smile,
+  Pencil,
+  Users,
+  History,
+  Boxes,
+  Command,
   Headphones,
   TrendingUp,
   CreditCard,
   Cpu,
   Activity,
-  FileText,
   Layers,
   Lock,
   Award,
+  Sparkles,
   MessageSquare,
   Building2,
   Briefcase,
   Newspaper,
   Send,
-  ArrowRight,
+  PhoneCall,
+  Mail,
+  GitBranch,
+  Radio,
+  ShieldCheck,
+  UserCheck,
+  BookOpen,
 } from 'lucide-react'
 import './landing.css'
 
@@ -219,95 +225,84 @@ function Navbar() {
               <div className="coda-dropdown-panel coda-dropdown-products" role="menu">
                 <div className="coda-dropdown-grid coda-dropdown-grid-2col">
                   <div className="coda-dropdown-col">
-                    <p className="coda-dropdown-section-title">Core AI Capabilities</p>
+                    <p className="coda-dropdown-section-title">AI Powered</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-blue">
-                        <PhoneCall size={18} />
+                      <div className="coda-dropdown-icon">
+                        <FileText size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">
-                          <span>Voice AI Agents</span>
-                          <span className="coda-dropdown-badge">Sub-200ms</span>
-                        </div>
-                        <p className="coda-dropdown-desc">Ultra-low latency conversational agents with human-like interruption handling.</p>
+                        <div className="coda-dropdown-title">AI Content Generator</div>
+                        <p className="coda-dropdown-desc">Publish-ready in minutes</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-purple">
-                        <Mail size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Megaphone size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Email Automation</div>
-                        <p className="coda-dropdown-desc">Context-aware thread analysis, auto-drafting, and autonomous inbox triage.</p>
+                        <div className="coda-dropdown-title">Ad Copy Creator</div>
+                        <p className="coda-dropdown-desc">Write Ads that convert</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-emerald">
-                        <GitBranch size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Smile size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Conversation Workflows</div>
-                        <p className="coda-dropdown-desc">Visual drag-and-drop orchestration across phone, email, and chat channels.</p>
+                        <div className="coda-dropdown-title">Tone Control</div>
+                        <p className="coda-dropdown-desc">Voice that fits</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-cyan">
-                        <Radio size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Pencil size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Native PBX & SIP</div>
-                        <p className="coda-dropdown-desc">Direct connectors for Twilio, Asterisk, Genesys, and enterprise SIP trunks.</p>
+                        <div className="coda-dropdown-title">AI Rewrite</div>
+                        <p className="coda-dropdown-desc">Polished in seconds</p>
                       </div>
                     </a>
                   </div>
 
                   <div className="coda-dropdown-col">
-                    <p className="coda-dropdown-section-title">Intelligence & Control</p>
+                    <p className="coda-dropdown-section-title">Productivity</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-amber">
-                        <Sparkles size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Users size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Call Summaries & Insights</div>
-                        <p className="coda-dropdown-desc">Instant structured notes, topic clustering, and bi-directional CRM syncing.</p>
+                        <div className="coda-dropdown-title">Team Collaboration</div>
+                        <p className="coda-dropdown-desc">Create together, seamlessly</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-rose">
-                        <ShieldCheck size={18} />
+                      <div className="coda-dropdown-icon">
+                        <History size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Compliance & Redaction</div>
-                        <p className="coda-dropdown-desc">Real-time PII masking, automated compliance scoring, and audit trails.</p>
+                        <div className="coda-dropdown-title">Smart Autosave</div>
+                        <p className="coda-dropdown-desc">Your work, always safe</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-indigo">
-                        <UserCheck size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Boxes size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Human-in-the-Loop</div>
-                        <p className="coda-dropdown-desc">Warm handoffs to live reps with full transcript context and zero repetition.</p>
+                        <div className="coda-dropdown-title">Drag-and-Drop Blocks</div>
+                        <p className="coda-dropdown-desc">Build content like stacking bricks</p>
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-slate">
-                        <BookOpen size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Command size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
-                        <div className="coda-dropdown-title">Knowledge Base Grounding</div>
-                        <p className="coda-dropdown-desc">Real-time synchronization with Salesforce, Zendesk, and internal docs.</p>
+                        <div className="coda-dropdown-title">Keyboard Shortcuts</div>
+                        <p className="coda-dropdown-desc">Write faster with pro controls</p>
                       </div>
                     </a>
                   </div>
-                </div>
-
-                <div className="coda-dropdown-footer">
-                  <div className="coda-dropdown-footer-note">⚡ Auto-Negotiated Opus & G.711u Live Telephony Engine</div>
-                  <a href="#demo" className="coda-dropdown-footer-link" onClick={() => setActiveMenu(null)}>
-                    <span>Explore live demo</span>
-                    <ArrowRight size={13} />
-                  </a>
                 </div>
               </div>
             )}
@@ -337,8 +332,8 @@ function Navbar() {
                   <div className="coda-dropdown-col">
                     <p className="coda-dropdown-section-title">By Team & Function</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-blue">
-                        <Headphones size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Headphones size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Customer Support</div>
@@ -346,8 +341,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-emerald">
-                        <TrendingUp size={18} />
+                      <div className="coda-dropdown-icon">
+                        <TrendingUp size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Inbound Sales</div>
@@ -355,8 +350,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-amber">
-                        <CreditCard size={18} />
+                      <div className="coda-dropdown-icon">
+                        <CreditCard size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Billing & Accounts</div>
@@ -364,8 +359,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-indigo">
-                        <Cpu size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Cpu size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Internal IT & Ops</div>
@@ -377,8 +372,8 @@ function Navbar() {
                   <div className="coda-dropdown-col">
                     <p className="coda-dropdown-section-title">By Industry</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-purple">
-                        <Lock size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Lock size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Financial Services</div>
@@ -386,8 +381,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-rose">
-                        <Activity size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Activity size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Healthcare & Clinics</div>
@@ -395,8 +390,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-cyan">
-                        <Layers size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Layers size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">E-Commerce & Retail</div>
@@ -404,8 +399,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-slate">
-                        <FileText size={18} />
+                      <div className="coda-dropdown-icon">
+                        <FileText size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">High-Growth SaaS</div>
@@ -440,9 +435,10 @@ function Navbar() {
               <div className="coda-dropdown-panel coda-dropdown-resources" role="menu">
                 <div className="coda-dropdown-grid coda-dropdown-grid-2col">
                   <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">Explore</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-blue">
-                        <FileText size={18} />
+                      <div className="coda-dropdown-icon">
+                        <FileText size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Documentation</div>
@@ -450,8 +446,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-amber">
-                        <Award size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Award size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Customer Stories</div>
@@ -459,8 +455,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-purple">
-                        <Layers size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Layers size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Integrations Directory</div>
@@ -470,9 +466,10 @@ function Navbar() {
                   </div>
 
                   <div className="coda-dropdown-col">
+                    <p className="coda-dropdown-section-title">Trust & Support</p>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-rose">
-                        <Lock size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Lock size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Trust & Security</div>
@@ -480,8 +477,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#features" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-emerald">
-                        <Sparkles size={18} />
+                      <div className="coda-dropdown-icon">
+                        <Sparkles size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">Changelog</div>
@@ -489,8 +486,8 @@ function Navbar() {
                       </div>
                     </a>
                     <a href="#faq" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                      <div className="coda-dropdown-icon icon-indigo">
-                        <MessageSquare size={18} />
+                      <div className="coda-dropdown-icon">
+                        <MessageSquare size={20} strokeWidth={1.75} />
                       </div>
                       <div className="coda-dropdown-text">
                         <div className="coda-dropdown-title">FAQ & Support</div>
@@ -525,8 +522,8 @@ function Navbar() {
               <div className="coda-dropdown-panel coda-dropdown-company" role="menu">
                 <div className="coda-dropdown-col">
                   <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                    <div className="coda-dropdown-icon icon-blue">
-                      <Building2 size={18} />
+                    <div className="coda-dropdown-icon">
+                      <Building2 size={20} strokeWidth={1.75} />
                     </div>
                     <div className="coda-dropdown-text">
                       <div className="coda-dropdown-title">About Synthio</div>
@@ -534,20 +531,17 @@ function Navbar() {
                     </div>
                   </a>
                   <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                    <div className="coda-dropdown-icon icon-emerald">
-                      <Briefcase size={18} />
+                    <div className="coda-dropdown-icon">
+                      <Briefcase size={20} strokeWidth={1.75} />
                     </div>
                     <div className="coda-dropdown-text">
-                      <div className="coda-dropdown-title">
-                        <span>Careers</span>
-                        <span className="coda-dropdown-badge">We're Hiring</span>
-                      </div>
+                      <div className="coda-dropdown-title">Careers</div>
                       <p className="coda-dropdown-desc">Join our distributed engineering, AI research, and design teams.</p>
                     </div>
                   </a>
                   <a href="#top" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                    <div className="coda-dropdown-icon icon-purple">
-                      <Newspaper size={18} />
+                    <div className="coda-dropdown-icon">
+                      <Newspaper size={20} strokeWidth={1.75} />
                     </div>
                     <div className="coda-dropdown-text">
                       <div className="coda-dropdown-title">Newsroom & Press</div>
@@ -555,8 +549,8 @@ function Navbar() {
                     </div>
                   </a>
                   <a href="#demo" className="coda-dropdown-item" onClick={() => setActiveMenu(null)}>
-                    <div className="coda-dropdown-icon icon-indigo">
-                      <Send size={18} />
+                    <div className="coda-dropdown-icon">
+                      <Send size={20} strokeWidth={1.75} />
                     </div>
                     <div className="coda-dropdown-text">
                       <div className="coda-dropdown-title">Contact Us</div>

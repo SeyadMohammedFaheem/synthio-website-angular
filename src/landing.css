@@ -527,7 +527,7 @@ code {
 }
 
 /* ═════════════════════════════════════════════════════════════════
-   CODA NAVIGATION DROPDOWNS
+   CODA NAVIGATION DROPDOWNS (Matches Reference Image in Light Theme)
    ═════════════════════════════════════════════════════════════════ */
 .coda-nav-link.has-pill .coda-chevron {
   transform: rotate(180deg);
@@ -539,15 +539,15 @@ code {
   left: 50%;
   transform: translateX(-50%);
   background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
-  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.04);
-  padding: 20px;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 24px 28px;
   z-index: 1100;
   cursor: default;
   text-align: left;
   animation: codaDropdownIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  color: #0F172A;
+  color: #18181B;
 }
 
 .coda-dropdown-panel::before {
@@ -571,7 +571,7 @@ code {
 }
 
 .coda-dropdown-products {
-  width: 680px;
+  width: 670px;
   left: 0;
   transform: translateX(-15%);
   animation: codaDropdownInProducts 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -589,50 +589,50 @@ code {
 }
 
 .coda-dropdown-solutions {
-  width: 640px;
+  width: 650px;
 }
 
 .coda-dropdown-resources {
-  width: 580px;
+  width: 630px;
 }
 
 .coda-dropdown-company {
-  width: 440px;
+  width: 380px;
 }
 
 .coda-dropdown-grid {
   display: grid;
-  gap: 16px;
 }
 
 .coda-dropdown-grid-2col {
   grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
 }
 
 .coda-dropdown-col {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 12px;
 }
 
 .coda-dropdown-section-title {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #64748B;
-  padding: 4px 10px 8px;
-  margin: 0;
+  letter-spacing: 0.12em;
+  color: #71717A;
+  padding-left: 2px;
+  margin: 0 0 4px;
 }
 
 .coda-dropdown-item {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 9px 10px;
-  border-radius: 12px;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: 14px;
   text-decoration: none;
-  color: #0F172A;
+  color: #18181B;
   transition: background-color 0.16s ease, transform 0.16s ease;
   cursor: pointer;
 }
@@ -641,33 +641,25 @@ code {
   background-color: #F8FAFC;
 }
 
-.coda-dropdown-item:hover .coda-dropdown-title {
-  color: #1262F6;
+.coda-dropdown-item:hover .coda-dropdown-icon {
+  background-color: #E4E4E7;
+  color: #000000;
+  transform: scale(1.04);
 }
 
 .coda-dropdown-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background-color: #F4F4F5;
+  border: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  color: #27272A;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
-
-.coda-dropdown-item:hover .coda-dropdown-icon {
-  transform: scale(1.06);
-}
-
-.icon-blue { background: #EFF6FF; color: #2563EB; }
-.icon-purple { background: #FAF5FF; color: #9333EA; }
-.icon-emerald { background: #ECFDF5; color: #059669; }
-.icon-amber { background: #FFFBEB; color: #D97706; }
-.icon-indigo { background: #EEF2FF; color: #4F46E5; }
-.icon-rose { background: #FFF1F2; color: #E11D48; }
-.icon-cyan { background: #ECFEFF; color: #0891B2; }
-.icon-slate { background: #F1F5F9; color: #475569; }
 
 .coda-dropdown-text {
   display: flex;
@@ -677,64 +669,21 @@ code {
 }
 
 .coda-dropdown-title {
-  font-size: 13.5px;
+  font-family: var(--font-main);
+  font-size: 14.5px;
   font-weight: 600;
-  color: #0F172A;
-  line-height: 1.3;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.15s ease;
-}
-
-.coda-dropdown-badge {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 1px 6px;
-  border-radius: 9999px;
-  background: #ECFDF5;
-  color: #059669;
-  letter-spacing: 0.04em;
+  color: #09090B;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .coda-dropdown-desc {
-  font-size: 12px;
-  font-weight: 400;
-  color: #64748B;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.coda-dropdown-footer {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid #F1F5F9;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.coda-dropdown-footer-link {
+  font-family: var(--font-main);
   font-size: 12.5px;
-  font-weight: 600;
-  color: #1262F6;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: gap 0.15s ease;
-}
-
-.coda-dropdown-footer-link:hover {
-  gap: 7px;
-}
-
-.coda-dropdown-footer-note {
-  font-size: 12px;
-  color: #64748B;
+  font-weight: 400;
+  color: #71717A;
+  line-height: 1.35;
+  margin: 0;
 }
 
 /* Mobile responsive hamburger & menu */
