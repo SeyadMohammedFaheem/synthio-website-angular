@@ -1,0 +1,1855 @@
+<div class="nexus-app" id="top">
+  <!-- ═══════════════════════════════════════════════════════════════
+       FLOATING NAVIGATION BAR WITH INTERACTIVE DROPDOWNS
+       ═══════════════════════════════════════════════════════════════ -->
+    <header
+    class="coda-nav-wrap"
+    [class.is-white-nav]="navTheme() === 'white'"
+    [class.is-blue-nav]="navTheme() === 'blue'"
+    [class.mobile-open]="mobileOpen()"
+  >
+    <div class="coda-nav-bar">
+      <!-- Left: Brand Logo (Synthio) -->
+      <div class="coda-nav-left">
+        <a class="coda-brand-logo" href="#top" aria-label="Synthio home">
+          <img
+            [src]="navTheme() === 'white' ? '/logos/logo-on-white.webp' : '/logos/logo-on-blue.webp'"
+            alt="Synthio"
+            class="coda-brand-img"
+            width="112"
+            height="32"
+            decoding="async"
+          />
+        </a>
+      </div>
+
+      <!-- Center: Nav Links with Dropdown Menus -->
+      <nav class="coda-nav-center" [class.is-open]="mobileOpen()" aria-label="Main navigation">
+        <!-- Products Dropdown -->
+        <div
+          class="coda-nav-item"
+          (mouseenter)="handleMouseEnter('products')"
+          (mouseleave)="handleMouseLeave()"
+        >
+          <button
+            type="button"
+            class="coda-nav-link"
+            [class.has-pill]="activeMenu() === 'products'"
+            (click)="toggleMenu('products')"
+            [attr.aria-expanded]="activeMenu() === 'products'"
+          >
+            <span>Products</span>
+            <svg class="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          @if (activeMenu() === 'products') {
+            <div class="coda-dropdown-panel coda-dropdown-products" role="menu">
+              <div class="coda-dropdown-grid coda-dropdown-grid-2col">
+                <!-- Column 1: AI POWERED -->
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">AI POWERED</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="file-text" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">AI Content Generator</div>
+                      <p class="coda-dropdown-desc">Publish-ready in minutes</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="megaphone" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Ad Copy Creator</div>
+                      <p class="coda-dropdown-desc">Write Ads that convert</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="smile" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Tone Control</div>
+                      <p class="coda-dropdown-desc">Voice that fits</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="pencil" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">AI Rewrite</div>
+                      <p class="coda-dropdown-desc">Polished in seconds</p>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Column 2: PRODUCTIVITY -->
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">PRODUCTIVITY</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="users" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Team Collaboration</div>
+                      <p class="coda-dropdown-desc">Create together, seamlessly</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="history" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Smart Autosave</div>
+                      <p class="coda-dropdown-desc">Your work, always safe</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="boxes" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Drag-and-Drop Blocks</div>
+                      <p class="coda-dropdown-desc">Build content like stacking bricks</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="command" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Keyboard Shortcuts</div>
+                      <p class="coda-dropdown-desc">Write faster with pro controls</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Solutions Dropdown -->
+        <div
+          class="coda-nav-item"
+          (mouseenter)="handleMouseEnter('solutions')"
+          (mouseleave)="handleMouseLeave()"
+        >
+          <button
+            type="button"
+            class="coda-nav-link"
+            [class.has-pill]="activeMenu() === 'solutions'"
+            (click)="toggleMenu('solutions')"
+            [attr.aria-expanded]="activeMenu() === 'solutions'"
+          >
+            <span>Solutions</span>
+            <svg class="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          @if (activeMenu() === 'solutions') {
+            <div class="coda-dropdown-panel coda-dropdown-solutions" role="menu">
+              <div class="coda-dropdown-grid coda-dropdown-grid-2col">
+                <!-- Column 1: By Team & Function -->
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">BY TEAM & FUNCTION</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="headphones" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Customer Support</div>
+                      <p class="coda-dropdown-desc">Resolve 80%+ Tier-1 inquiries autonomously 24/7 with zero wait time.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="trending-up" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Inbound Sales</div>
+                      <p class="coda-dropdown-desc">Instant lead qualification, intent routing, and calendar booking.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="credit-card" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Billing & Accounts</div>
+                      <p class="coda-dropdown-desc">Automate payment reminders, invoice questions, and dispute handling.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="cpu" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Internal IT & Ops</div>
+                      <p class="coda-dropdown-desc">Employee helpdesk, access approvals, and autonomous troubleshooting.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Column 2: By Industry -->
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">BY INDUSTRY</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="lock" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Financial Services</div>
+                      <p class="coda-dropdown-desc">Bank-grade security, fraud notifications, and PCI-DSS compliance.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="activity" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Healthcare & Clinics</div>
+                      <p class="coda-dropdown-desc">HIPAA-compliant patient appointment scheduling and triage routing.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="layers" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">E-Commerce & Retail</div>
+                      <p class="coda-dropdown-desc">Instant shipping updates, order exchanges, and return logistics.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="file-text" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">High-Growth SaaS</div>
+                      <p class="coda-dropdown-desc">Scale customer success without adding headcount during peak volume.</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Resources Dropdown -->
+        <div
+          class="coda-nav-item"
+          (mouseenter)="handleMouseEnter('resources')"
+          (mouseleave)="handleMouseLeave()"
+        >
+          <button
+            type="button"
+            class="coda-nav-link"
+            [class.has-pill]="activeMenu() === 'resources'"
+            (click)="toggleMenu('resources')"
+            [attr.aria-expanded]="activeMenu() === 'resources'"
+          >
+            <span>Resources</span>
+            <svg class="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          @if (activeMenu() === 'resources') {
+            <div class="coda-dropdown-panel coda-dropdown-resources" role="menu">
+              <div class="coda-dropdown-grid coda-dropdown-grid-2col">
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">EXPLORE</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="file-text" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Documentation</div>
+                      <p class="coda-dropdown-desc">API references, webhooks, SIP connectors, and quickstart guides.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="award" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Customer Stories</div>
+                      <p class="coda-dropdown-desc">How engineering teams achieved 89% faster resolution with Synthio.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="layers" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Integrations Directory</div>
+                      <p class="coda-dropdown-desc">100+ native connectors for Salesforce, Zendesk, Slack, and Zapier.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="coda-dropdown-col">
+                  <p class="coda-dropdown-section-title">TRUST & SUPPORT</p>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="lock" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Trust & Security</div>
+                      <p class="coda-dropdown-desc">SOC-2 Type II certified, GDPR compliant, with full data sovereignty.</p>
+                    </div>
+                  </a>
+                  <a href="#features" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="sparkles" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">Changelog</div>
+                      <p class="coda-dropdown-desc">Read about our latest voice models, audio improvements, and updates.</p>
+                    </div>
+                  </a>
+                  <a href="#faq" class="coda-dropdown-item" (click)="closeMenu()">
+                    <div class="coda-dropdown-icon">
+                      <app-icon name="message-square" [size]="20" [strokeWidth]="1.75"></app-icon>
+                    </div>
+                    <div class="coda-dropdown-text">
+                      <div class="coda-dropdown-title">FAQ & Support</div>
+                      <p class="coda-dropdown-desc">Frequently asked questions and 24/7 technical customer support.</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Company Dropdown -->
+        <div
+          class="coda-nav-item"
+          (mouseenter)="handleMouseEnter('company')"
+          (mouseleave)="handleMouseLeave()"
+        >
+          <button
+            type="button"
+            class="coda-nav-link"
+            [class.has-pill]="activeMenu() === 'company'"
+            (click)="toggleMenu('company')"
+            [attr.aria-expanded]="activeMenu() === 'company'"
+          >
+            <span>Company</span>
+            <svg class="coda-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          @if (activeMenu() === 'company') {
+            <div class="coda-dropdown-panel coda-dropdown-company" role="menu">
+              <div class="coda-dropdown-col">
+                <a href="#top" class="coda-dropdown-item" (click)="closeMenu()">
+                  <div class="coda-dropdown-icon">
+                    <app-icon name="building-2" [size]="20" [strokeWidth]="1.75"></app-icon>
+                  </div>
+                  <div class="coda-dropdown-text">
+                    <div class="coda-dropdown-title">About Synthio</div>
+                    <p class="coda-dropdown-desc">Our mission to give every team autonomous conversation intelligence.</p>
+                  </div>
+                </a>
+                <a href="#top" class="coda-dropdown-item" (click)="closeMenu()">
+                  <div class="coda-dropdown-icon">
+                    <app-icon name="briefcase" [size]="20" [strokeWidth]="1.75"></app-icon>
+                  </div>
+                  <div class="coda-dropdown-text">
+                    <div class="coda-dropdown-title">Careers</div>
+                    <p class="coda-dropdown-desc">Join our distributed engineering, AI research, and design teams.</p>
+                  </div>
+                </a>
+                <a href="#top" class="coda-dropdown-item" (click)="closeMenu()">
+                  <div class="coda-dropdown-icon">
+                    <app-icon name="newspaper" [size]="20" [strokeWidth]="1.75"></app-icon>
+                  </div>
+                  <div class="coda-dropdown-text">
+                    <div class="coda-dropdown-title">Newsroom & Press</div>
+                    <p class="coda-dropdown-desc">Read our official announcements, media mentions, and brand kit.</p>
+                  </div>
+                </a>
+                <a href="#cta" class="coda-dropdown-item" (click)="closeMenu()">
+                  <div class="coda-dropdown-icon">
+                    <app-icon name="send" [size]="20" [strokeWidth]="1.75"></app-icon>
+                  </div>
+                  <div class="coda-dropdown-text">
+                    <div class="coda-dropdown-title">Contact Us</div>
+                    <p class="coda-dropdown-desc">Talk with our enterprise solutions team about custom deployments.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Pricing Link -->
+        <div class="coda-nav-item">
+          <a class="coda-nav-link" href="#pricing" (click)="closeMobile()">
+            Pricing
+          </a>
+        </div>
+
+        <!-- Mobile Drawer Bottom Actions -->
+        <div class="coda-mobile-menu-footer">
+          <div class="coda-mobile-menu-row">
+            <button type="button" class="coda-mobile-lang-btn" aria-label="Change language">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+              </svg>
+              <span>EN</span>
+            </button>
+            <a class="coda-mobile-login-link" href="#pricing" (click)="closeMobile()">
+              Login
+            </a>
+          </div>
+          <a class="coda-mobile-get-started-btn" href="#pricing" (click)="closeMobile()">
+            Get started
+          </a>
+        </div>
+      </nav>
+
+      <!-- Right: Language, Login, Get Started -->
+      <div class="coda-nav-right">
+        <button type="button" class="coda-lang-btn" aria-label="Change language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <path d="M2 12h20" />
+          </svg>
+          <span>EN</span>
+        </button>
+
+        <a class="coda-login-link" href="#pricing">
+          Login
+        </a>
+
+        <a class="coda-get-started-btn" href="#pricing">
+          Get started
+        </a>
+
+        <!-- Mobile hamburger button -->
+        <button
+          type="button"
+          class="coda-mobile-burger"
+          (click)="toggleMobile()"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION WITH PARALLAX HILLS & MACOS INTERACTIVE DASHBOARD
+         ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="hero-section"
+      id="top"
+      (mousemove)="onHeroMouseMove($event)"
+      (mouseleave)="onHeroMouseLeave()"
+    >
+      <!-- Background Hill (bottom.webp) - Layer 1 -->
+      <div class="hero-hills-back-wrap" aria-hidden="true">
+        <img
+          src="/bottom.webp"
+          alt=""
+          class="hero-hill-img hero-hill-back"
+          width="3840"
+          height="1200"
+          fetchPriority="high"
+          decoding="async"
+          [style.transform]="'translateX(calc(-50% + ' + (heroMouseOffset().x * 12) + 'px)) translateY(' + (heroMouseOffset().y * 6) + 'px)'"
+        />
+      </div>
+
+      <div class="hero-container">
+        <!-- Heading -->
+        <h1 class="hero-title">
+          <span class="hero-title-main">Smarter AI agents.</span>
+          <span class="hero-title-italic">Better conversations.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle">
+          Build intelligent AI agents that handle customer calls, manage emails, and automate conversations — all from one platform.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-row">
+          <a class="hero-btn-dark-pill" href="#pricing">
+            <span>Get Started</span>
+          </a>
+          <a class="hero-btn-light-pill" href="#features">
+            <span>Book a Demo</span>
+          </a>
+        </div>
+
+        <!-- Trust Bullets -->
+        <div class="hero-trust-bullets">
+          <span>Voice AI</span>
+          <span class="bullet-sep" aria-hidden="true">&middot;</span>
+          <span>Email Automation</span>
+          <span class="bullet-sep" aria-hidden="true">&middot;</span>
+          <span>24/7 Availability</span>
+          <span class="bullet-sep" aria-hidden="true">&middot;</span>
+          <span>Bi-Directional CRM Sync</span>
+        </div>
+
+        <!-- Rating proof -->
+        <div class="hero-rating-proof">
+          <span class="rating-stars">★★★★★</span>
+          <span class="rating-copy">Rated 4.9/5 by 1,400+ customer operations, support, and sales teams</span>
+        </div>
+
+        <!-- Interactive AI Customer Operations Dashboard - Layer 2 -->
+        <div class="hero-window-wrapper hero-dash-wrapper">
+          <div class="hero-window hero-dash-window">
+              <!-- Dashboard Top Navigation Bar -->
+              <div class="dash-top-nav">
+                <div class="dash-top-left">
+                  <div class="dash-workspace-selector">
+                    <span class="dash-workspace-icon"><app-icon name="workspace" [size]="15"></app-icon></span>
+                    <span class="dash-workspace-name">Synthio Workspace</span>
+                    <span class="dash-dropdown-chevron"><app-icon name="chevron-down" [size]="9"></app-icon></span>
+                  </div>
+                </div>
+
+                <div class="dash-top-center">
+                  <div class="dash-search-box">
+                    <span class="dash-search-icon"><app-icon name="search" [size]="13"></app-icon></span>
+                    <input
+                      type="text"
+                      readonly
+                      value="Search customer, email, ticket, or phone number..."
+                      class="dash-search-input"
+                    />
+                  </div>
+                </div>
+
+                <div class="dash-top-right">
+                  <button type="button" class="dash-icon-btn" aria-label="Notifications">
+                    <span class="dash-bell-icon"><app-icon name="bell" [size]="15"></app-icon></span>
+                    <span class="dash-bell-badge" ></span>
+                  </button>
+                  <div class="dash-user-badge">
+                    <span class="dash-user-avatar">J</span>
+                    <span class="dash-user-name">John Ab.</span>
+                    <span class="dash-user-chevron"><app-icon name="chevron-down" [size]="9"></app-icon></span>
+                  </div>
+                  <button type="button" class="dash-more-btn">⋮</button>
+                </div>
+              </div>
+
+              <!-- Dashboard 4-Column Main Stage -->
+              <div class="dash-stage-grid">
+                <!-- Column 1: Slim Left App Sidebar -->
+                <aside class="dash-col-nav">
+                  <div class="dash-nav-active-pill">
+                    <span class="nav-pill-icon"><app-icon name="inbox" [size]="15"></app-icon></span>
+                    <span class="nav-pill-label">Inbox</span>
+                  </div>
+
+                  <div class="dash-nav-section-title">MANAGE</div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="teams" [size]="15"></app-icon></span>
+                    <span>Teams</span>
+                  </div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="integrations" [size]="15"></app-icon></span>
+                    <span>Integrations</span>
+                  </div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="knowledge" [size]="15"></app-icon></span>
+                    <span>Knowledge</span>
+                  </div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="ai-center" [size]="15"></app-icon></span>
+                    <span>AI Center</span>
+                  </div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="automations" [size]="15"></app-icon></span>
+                    <span>Automations</span>
+                  </div>
+                  <div class="dash-nav-item">
+                    <span class="nav-item-icon"><app-icon name="settings" [size]="15"></app-icon></span>
+                    <span>Settings</span>
+                  </div>
+
+                  <!-- Promo / Upgrade Card -->
+                  <div class="dash-sidebar-promo">
+                    <div class="promo-title">Get 40% discount</div>
+                    <div class="promo-desc">Upgrade your free trial today!</div>
+                    <button type="button" class="promo-btn">Upgrade</button>
+                  </div>
+                </aside>
+
+                <!-- Column 2: Inbox & Channel List -->
+                <div class="dash-col-inbox">
+                  <div class="inbox-header-row">
+                    <span class="inbox-title">Inbox</span>
+                    <button type="button" class="inbox-add-btn" title="New conversation">
+                      <app-icon name="plus" [size]="11"></app-icon>
+                    </button>
+                  </div>
+
+                  <!-- Status Filters -->
+                  <div class="inbox-filter-list">
+                    <div class="inbox-filter-item is-active">
+                      <span class="filter-icon"><app-icon name="inbox" [size]="13"></app-icon></span>
+                      <span class="filter-name">Open</span>
+                    </div>
+                    <div class="inbox-filter-item">
+                      <span class="filter-icon"><app-icon name="clock" [size]="13"></app-icon></span>
+                      <span class="filter-name">Awaiting</span>
+                      <span class="filter-count">5</span>
+                    </div>
+                    <div class="inbox-filter-item">
+                      <span class="filter-icon"><app-icon name="alarm" [size]="13"></app-icon></span>
+                      <span class="filter-name">Snoozed</span>
+                      <span class="filter-count">2</span>
+                    </div>
+                    <div class="inbox-filter-item">
+                      <span class="filter-icon"><app-icon name="alert-triangle" [size]="13"></app-icon></span>
+                      <span class="filter-name">Overdue SLA</span>
+                    </div>
+                    <div class="inbox-filter-item">
+                      <span class="filter-icon"><app-icon name="check" [size]="13"></app-icon></span>
+                      <span class="filter-name">Resolved</span>
+                      <span class="filter-count">12</span>
+                    </div>
+                  </div>
+
+                  <!-- Channels -->
+                  <div class="dash-section-subhead">Channels</div>
+                  <div class="inbox-channel-list">
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="mail" [size]="13"></app-icon></span>
+                      <span class="ch-name">Email</span>
+                      <span class="ch-count">6</span>
+                    </div>
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="chat" [size]="13"></app-icon></span>
+                      <span class="ch-name">Chat</span>
+                    </div>
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="whatsapp" [size]="13"></app-icon></span>
+                      <span class="ch-name">WhatsApp</span>
+                    </div>
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="phone" [size]="13"></app-icon></span>
+                      <span class="ch-name">Voice Calls</span>
+                      <span class="ch-count ch-live">Live</span>
+                    </div>
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="slack" [size]="13"></app-icon></span>
+                      <span class="ch-name">Slack</span>
+                      <span class="ch-count">16</span>
+                    </div>
+                    <div class="channel-item">
+                      <span class="ch-icon"><app-icon name="stripe" [size]="13"></app-icon></span>
+                      <span class="ch-name">Stripe</span>
+                      <span class="ch-count">2</span>
+                    </div>
+                  </div>
+
+                  <!-- Direct Messages -->
+                  <div class="dash-section-subhead">Direct Messages</div>
+                  <div class="inbox-thread-list">
+                    @for (thread of dashboardThreads; track thread.id) {
+                      <div
+                        
+                        (click)="selectThread(thread.id)"
+                        class="inbox-thread-card" [class.is-selected]="selectedThreadId() === thread.id"
+                      >
+                        <div class="thread-avatar" [style.backgroundColor]="thread.avatarBg">
+                          {{ thread.avatarText }}
+                        </div>
+                        <div class="thread-info">
+                          <div class="thread-top">
+                            <span class="thread-name">{{ thread.name }}</span>
+                            <span class="thread-tag" [class]="'tag-' + thread.tagType">{{ thread.tag }}</span>
+                          </div>
+                          <div class="thread-preview">{{ thread.preview }}</div>
+                          <div class="thread-time">{{ thread.time }}</div>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+
+                <!-- Column 3: Active Conversation Feed -->
+                <div class="dash-col-conversation">
+                  <!-- Conversation Header -->
+                  <div class="conv-header">
+                    <div class="conv-user-info">
+                      <div class="conv-avatar" [style.backgroundColor]="currentThread().avatarBg">
+                        {{ currentThread().avatarText }}
+                      </div>
+                      <div class="conv-user-meta">
+                        <span class="conv-user-name">{{ currentThread().name }}</span>
+                        <span class="conv-user-time">{{ currentThread().time }}</span>
+                      </div>
+                    </div>
+
+                    <div class="conv-header-actions">
+                      <div class="conv-assignee-pill">
+                        <span class="assignee-avatar">J</span>
+                        <span>John Ab.</span>
+                        <span class="assignee-chevron"><app-icon name="chevron-down" [size]="9"></app-icon></span>
+                      </div>
+                      <div class="conv-channel-pill">
+                        <app-icon name="mail" [size]="12"></app-icon>
+                        <span>Email</span>
+                      </div>
+                      <button type="button" class="conv-opt-btn">⋮</button>
+                    </div>
+                  </div>
+
+                  <!-- Date Badge -->
+                  <div class="conv-date-chip">
+                    <span>09 Sept, 2025</span>
+                  </div>
+
+                  <!-- Message History -->
+                  <div class="conv-messages-area">
+                    @for (msg of currentThread().messages; track msg.id) {
+                      <div  class="conv-msg-row" [class]="'msg-is-' + msg.sender">
+                        @if (msg.sender === 'customer') {
+                          <div class="msg-avatar" [style.backgroundColor]="currentThread().avatarBg">
+                            {{ currentThread().avatarText }}
+                          </div>
+                        }
+
+                        <div class="msg-content-wrapper">
+                          <div class="msg-author-time">
+                            <span class="msg-author">{{ msg.author }}</span>
+                            <span class="msg-time">{{ msg.time }}</span>
+                          </div>
+
+                          @if (msg.text) {
+                            <div class="msg-bubble">
+                              <p>{{ msg.text }}</p>
+                              <span class="msg-emoji-react" title="Add reaction">
+                                <app-icon name="smiley" [size]="13"></app-icon>
+                              </span>
+                            </div>
+                          }
+
+                          @if (msg.isActionCard && msg.actionCard) {
+                            <div class="dash-action-receipt-card">
+                              <div class="receipt-card-header">
+                                <div class="receipt-status-pill">
+                                  <span class="receipt-check"><app-icon name="check" [size]="11"></app-icon></span>
+                                  <span>{{ msg.actionCard.title }}</span>
+                                </div>
+                                <button type="button" class="receipt-download-btn" title="Download receipt">
+                                  <app-icon name="download" [size]="12"></app-icon>
+                                </button>
+                              </div>
+                              <div class="receipt-card-body">
+                                <div class="receipt-sub">{{ msg.actionCard.sub }}</div>
+                                <div class="receipt-meta-row">
+                                  <span class="receipt-id">{{ msg.actionCard.refId }}</span>
+                                  @if (msg.actionCard.amount) {
+                                    <span class="receipt-amount">{{ msg.actionCard.amount }}</span>
+                                  }
+                                </div>
+                                <div class="receipt-footer-tag">
+                                  <span class="receipt-tag-icon"><app-icon name="check" [size]="10"></app-icon></span>
+                                  <span>{{ msg.actionCard.status }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          }
+                        </div>
+
+                        @if (msg.sender === 'agent') {
+                          <div class="msg-avatar agent-avatar">J</div>
+                        }
+                      </div>
+                    }
+
+                    <!-- Appended User Replies -->
+                    @for (extra of threadExtras(); track $index) {
+                      <div  class="conv-msg-row msg-is-agent">
+                        <div class="msg-content-wrapper">
+                          <div class="msg-author-time">
+                            <span class="msg-author">You (Agent Support)</span>
+                            <span class="msg-time">{{ extra.time }}</span>
+                          </div>
+                          <div class="msg-bubble">
+                            <p>{{ extra.text }}</p>
+                          </div>
+                        </div>
+                        <div class="msg-avatar agent-avatar">J</div>
+                      </div>
+                    }
+                  </div>
+
+                  <!-- Reply Input Bar -->
+                  <form class="conv-reply-bar" (submit)="sendReply($event)">
+                    <button type="button" class="reply-attach-btn" title="Attach file">
+                      <app-icon name="plus" [size]="13"></app-icon>
+                    </button>
+                    <input
+                      type="text"
+                      placeholder="Type your reply..."
+                      [value]="replyInput()"
+                      (input)="replyInput.set($any($event.target).value)"
+                      class="reply-text-input"
+                    />
+                    <button type="submit" class="reply-send-btn" title="Send reply">
+                      <app-icon name="arrow-up" [size]="13"></app-icon>
+                    </button>
+                  </form>
+                </div>
+
+                <!-- Column 4: Customer Details & AI Insights -->
+                <aside class="dash-col-profile">
+                  <!-- Details / Tickets Tabs -->
+                  <div class="profile-top-tabs">
+                    <button
+                      type="button"
+                      class="profile-tab-btn" [class.is-active]="activeProfileTab() === 'details'"
+                      (click)="selectProfileTab('details')"
+                    >
+                      Profile details
+                    </button>
+                    <button
+                      type="button"
+                      class="profile-tab-btn" [class.is-active]="activeProfileTab() === 'tickets'"
+                      (click)="selectProfileTab('tickets')"
+                    >
+                      Tickets
+                    </button>
+                  </div>
+
+                  <!-- Information Section -->
+                  <div class="profile-section-heading">Information</div>
+                  <div class="profile-info-table">
+                    <div class="info-row">
+                      <span class="info-key">Assignee</span>
+                      <span class="info-val info-assignee">John Ab</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Email:</span>
+                      <span class="info-val info-link">{{ currentThread().email }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Plan:</span>
+                      <span class="info-val">{{ currentThread().plan }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">LTV:</span>
+                      <span class="info-val">{{ currentThread().ltv }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Joined:</span>
+                      <span class="info-val">{{ currentThread().joined }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Priority:</span>
+                      <span class="info-val" [class]="'priority-' + currentThread().priority.toLowerCase()">
+                        {{ currentThread().priority }}
+                      </span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Segment:</span>
+                      <span class="info-val">{{ currentThread().segment }}</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-key">Language:</span>
+                      <span class="info-val">{{ currentThread().language }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Orders / Billing Card -->
+                  <div class="profile-section-heading">Orders / Billing:</div>
+                  <div class="dash-payment-card">
+                    <div class="payment-card-left">
+                      <span class="stripe-icon-badge">S</span>
+                      <div class="payment-meta">
+                        <span class="payment-title">Last payment <app-icon name="external-link" [size]="10"></app-icon></span>
+                        <span class="payment-date">{{ currentThread().lastPayment.date }}</span>
+                      </div>
+                    </div>
+                    <div class="payment-amount">{{ currentThread().lastPayment.amount }}</div>
+                  </div>
+
+                  <!-- AI Insights Card -->
+                  <div class="profile-section-heading">AI Insights:</div>
+                  <div class="dash-ai-insights-box">
+                    <p class="ai-summary-text">{{ currentThread().aiSummary }}</p>
+                    <div class="ai-status-row">
+                      <span class="ai-status-label">Status:</span>
+                      <span class="ai-status-pill">{{ currentThread().status }}</span>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Foreground Hill (top.webp) - Layer 3 -->
+      <div class="hero-hills-front-wrap" aria-hidden="true">
+        <img
+          src="/top.webp"
+          alt=""
+          class="hero-hill-img hero-hill-front"
+          width="3840"
+          height="1200"
+          fetchPriority="high"
+          decoding="async"
+          [style.transform]="'translateX(calc(-50% + ' + (heroMouseOffset().x * 24) + 'px)) translateY(' + (heroMouseOffset().y * 12) + 'px)'"
+        />
+      </div>
+    </section>
+
+          <!-- Customer Logos Strip - On the clean white/warm page section -->
+      <section class="hero-logos-section">
+        <div class="section-container">
+          <h2 class="logos-heading">Powering the front lines of engineering teams at</h2>
+        </div>
+        <div class="logos-marquee-wrapper" aria-label="Client logos">
+          <div class="logos-marquee-track">
+            <div class="logos-marquee-group">
+              @for (logo of clientLogos; track logo.name) {
+                <div class="logo-item-wrapper">
+                  <img
+                    [src]="logo.file"
+                    [alt]="logo.name"
+                    class="client-logo-svg"
+                    [style.height.px]="logo.height"
+                    loading="lazy"
+                  />
+                </div>
+              }
+            </div>
+            <div class="logos-marquee-group" aria-hidden="true">
+              @for (logo of clientLogos; track logo.name + '-repeat') {
+                <div class="logo-item-wrapper">
+                  <img
+                    [src]="logo.file"
+                    [alt]="logo.name"
+                    class="client-logo-svg"
+                    [style.height.px]="logo.height"
+                    loading="lazy"
+                  />
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         BENTO FEATURES (SMARTER CALL SUMMARIES, POWERED BY SYNTHIO AI)
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="bento-section" id="features">
+      <div class="section-container">
+        <!-- Section Header -->
+        <div class="section-header-center bento-header-wrap">
+          <h2 class="bento-new-heading">
+            Smarter call summaries,<br />
+            <span class="bento-heading-accent">Powered by Synthio AI</span>
+          </h2>
+          <p class="bento-new-subtext">
+            Automatically turn every customer call into clear insights, transcripts, and compliance reports &mdash; all synced directly to your CRM. No more forgotten details, manual note-taking, or lost context.
+          </p>
+        </div>
+
+        <!-- Outer Bento Frame -->
+        <div class="bento-outer-frame">
+          <div class="bento-v2-grid">
+            <!-- Card 1: Generative AI Insights -->
+            <article class="bento-v2-card bento-v2-third">
+              <div class="bento-v2-art art-insights">
+                <div class="faint-stage-grid"></div>
+                <div class="insights-stage">
+                  <div class="insight-pill pill-summary">Call Summary</div>
+                  <div class="insight-pill pill-topic">Key Topics</div>
+                  <div class="center-cms-card">
+                    <span class="cms-label">CRM</span>
+                  </div>
+                  <div class="insight-pill pill-product">Action Items</div>
+                  <div class="insight-pill pill-resolve">Resolved</div>
+                </div>
+              </div>
+              <div class="bento-v2-body">
+                <h3 class="bento-v2-title">Generative AI Insights</h3>
+                <p class="bento-v2-desc">
+                  Turn every call into clear, actionable insights with AI-generated summaries and automatic CRM sync.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 2: Generative AI Query -->
+            <article class="bento-v2-card bento-v2-third">
+              <div class="bento-v2-art art-query">
+                <div class="faint-stage-grid"></div>
+                <div class="query-box-mock">
+                  <span class="query-placeholder">Did customer agree to the enterprise plan?</span>
+                  <button type="button" class="query-submit-btn">Ask AI</button>
+                </div>
+              </div>
+              <div class="bento-v2-body">
+                <h3 class="bento-v2-title">Generative AI Query</h3>
+                <p class="bento-v2-desc">
+                  Ask any question across your calls and inboxes to get instant, timestamped answers powered by Synthio.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 3: Call Analytics Summary -->
+            <article class="bento-v2-card bento-v2-third">
+              <div class="bento-v2-art art-analytics-summary">
+                <div class="analytics-summary-card">
+                  <div class="summary-block">
+                    <span class="summary-block-label">Issue</span>
+                    <p class="summary-block-text">
+                      Customer noticed duplicate billing on monthly Pro subscription and requested immediate reversal.
+                    </p>
+                  </div>
+                  <div class="summary-block">
+                    <span class="summary-block-label">Action Items</span>
+                    <p class="summary-block-text">
+                      Auto-issued $240 Stripe refund &amp; updated Zendesk ticket #4812
+                    </p>
+                  </div>
+                  <div class="summary-block">
+                    <span class="summary-block-label">Outcomes</span>
+                    <p class="summary-block-text">
+                      Refund confirmed to card ending 4242. Full audio &amp; receipt synced to Salesforce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bento-v2-body">
+                <h3 class="bento-v2-title">Call Analytics Summary</h3>
+                <p class="bento-v2-desc">
+                  Quickly review root issues, automated actions, and resolution outcomes from every customer call.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 4: Transcript (Wide) -->
+            <article class="bento-v2-card bento-v2-wide">
+              <div class="bento-v2-art art-transcript">
+                <div class="transcript-feed">
+                  <div class="transcript-line">
+                    <div class="transcript-speaker">
+                      <span class="speaker-avatar-dot agent-dot">⚡</span>
+                      <span class="speaker-name">Synthio Voice Agent</span>
+                      <span class="speaker-time">00:00</span>
+                    </div>
+                    <p class="transcript-speech">
+                      Hi, thank you for calling Synthio Support. How can I help you today?
+                    </p>
+                  </div>
+
+                  <div class="transcript-line">
+                    <div class="transcript-speaker">
+                      <span class="speaker-avatar-dot caller-dot">👤</span>
+                      <span class="speaker-name">Elena Rostova</span>
+                      <span class="speaker-time">00:04</span>
+                      <span class="tag-interruption">Interruption</span>
+                    </div>
+                    <p class="transcript-speech">
+                      Yeah, <mark class="mark-interrupted">hi&mdash;sorry to jump in,</mark> I'm having trouble logging into my account. <mark class="mark-highlight">I tried resetting my password,</mark> but it still won't work.
+                    </p>
+                  </div>
+
+                  <div class="transcript-line">
+                    <div class="transcript-speaker">
+                      <span class="speaker-avatar-dot caller-dot">👤</span>
+                      <span class="speaker-name">Elena Rostova</span>
+                      <span class="speaker-time">00:09</span>
+                    </div>
+                    <p class="transcript-speech">
+                      I keep getting an error that says <mark class="mark-error">&ldquo;session lock #8412,&rdquo;</mark> even though I just updated credentials.
+                    </p>
+                  </div>
+
+                  <div class="transcript-line">
+                    <div class="transcript-speaker">
+                      <span class="speaker-avatar-dot agent-dot">⚡</span>
+                      <span class="speaker-name">Synthio Voice Agent</span>
+                      <span class="speaker-time">00:13</span>
+                    </div>
+                    <p class="transcript-speech">
+                      I see the lock on your account. I've cleared the session and sent a 1-click verification link to your registered mobile phone.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bento-v2-body">
+                <h3 class="bento-v2-title">Transcript</h3>
+                <p class="bento-v2-desc">
+                  Get accurate, AI-generated transcripts of every call with speaker detection, sentiment, and key topics.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 5: Compliance Report (Narrow) -->
+            <article class="bento-v2-card bento-v2-narrow">
+              <div class="bento-v2-art art-compliance">
+                <div class="faint-stage-grid"></div>
+                <div class="compliance-stage">
+                  <div class="compliance-badge badge-prohibited">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2.4" strokeLinecap="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                    </svg>
+                    <span class="alert-red-dot"></span>
+                  </div>
+
+                  <div class="compliance-badge badge-flag">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4B5563" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                      <line x1="4" y1="22" x2="4" y2="15" />
+                    </svg>
+                    <span class="alert-red-dot"></span>
+                  </div>
+
+                  <div class="center-folder-icon">
+                    <svg width="60" height="50" viewBox="0 0 56 46" fill="none">
+                      <path d="M4 12C4 8.68629 6.68629 6 10 6H20.6863C22.2776 6 23.8038 6.63214 24.9289 7.75736L27.2426 10.0711C28.3679 11.1963 29.894 11.8284 31.4853 11.8284H46C49.3137 11.8284 52 14.5147 52 17.8284V36C52 39.3137 49.3137 42 46 42H10C6.68629 42 4 39.3137 4 36V12Z" fill="#FFFFFF" stroke="#D1D5DB" strokeWidth="2" />
+                      <path d="M4 18H52" stroke="#E5E7EB" strokeWidth="1.5" />
+                    </svg>
+                  </div>
+
+                  <div class="compliance-badge badge-warning">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                      <line x1="12" y1="9" x2="12" y2="13" />
+                      <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    <span class="alert-red-dot"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="bento-v2-body">
+                <h3 class="bento-v2-title">Compliance &amp; Redaction</h3>
+                <p class="bento-v2-desc">
+                  Automatically redact customer PII, detect compliance risks, and enforce PCI-DSS standards across every call.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EVERYTHING. ALL IN ONE PLACE. (TABBED SHOWCASE)
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="everything-section" id="everything">
+      <div class="section-container everything-container">
+        <div class="everything-layout">
+          <!-- Left Column: Heading, Tabs List, CTAs -->
+          <div class="everything-left-col">
+            <div class="everything-header">
+              <h2 class="everything-title">Everything. All in one place.</h2>
+              <p class="everything-subtitle">
+                Handle calls, automate emails, and orchestrate conversations — all from one unified platform.
+              </p>
+            </div>
+
+            <div class="everything-tabs-list" role="tablist">
+              @for (tab of everythingTabs; track tab.id; let idx = $index) {
+                <button
+                  type="button"
+                  role="tab"
+                  [attr.aria-selected]="idx === activeTabIdx()"
+                  class="everything-tab-item"
+                  [class.is-active]="idx === activeTabIdx()"
+                  (click)="selectEverythingTab(idx)"
+                >
+                  <div class="everything-tab-title">{{ tab.title }}</div>
+                  <div class="everything-tab-desc">{{ tab.desc }}</div>
+                </button>
+              }
+            </div>
+
+            <div class="everything-actions">
+              <a class="everything-btn-black" href="#pricing">
+                Get started free
+              </a>
+              <a class="everything-btn-white" href="#features">
+                See it in action
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Dynamic Stage Showcase -->
+          <div class="everything-right-col">
+            <div class="everything-showcase-stage">
+              <img
+                [src]="currentEverythingTab().backdrop"
+                alt=""
+                class="everything-stage-backdrop"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="everything-floating-card">
+                <div class="floating-card-label">{{ currentEverythingTab().card.label }}</div>
+                <div class="floating-card-price">{{ currentEverythingTab().card.title }}</div>
+                <div class="floating-card-desc">{{ currentEverythingTab().card.desc }}</div>
+                <div class="floating-card-green-pill">
+                  <span class="green-dot-pulse" aria-hidden="true"></span>
+                  <span>{{ currentEverythingTab().card.alert }}</span>
+                </div>
+                <div class="floating-card-tags">
+                  @for (tag of currentEverythingTab().card.tags; track tag.text) {
+                    <span
+                      class="card-tag"
+                      [style.backgroundColor]="tag.bg"
+                      [style.color]="tag.color"
+                    >
+                      {{ tag.text }}
+                    </span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         INTEGRATIONS DIRECTORY
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="connect-section" id="integrations">
+      <div class="section-container">
+        <div class="section-header-center">
+          <h2 class="section-heading">
+            The stack you already run.<br />
+            One agent on top of it.
+          </h2>
+          <p class="section-subtext">
+            Synthio connects to voice, inbox, CRM, and chat so every conversation writes back where your team already works. Standard setups take a few minutes. No glue code.
+          </p>
+        </div>
+
+        <div class="connect-toolbar">
+          <div class="connect-filters" role="tablist" aria-label="Filter integrations">
+            @for (item of integrationFilters; track item.id) {
+              <button
+                type="button"
+                role="tab"
+                [attr.aria-selected]="integrationFilter() === item.id"
+                class="connect-filter"
+                [class.is-active]="integrationFilter() === item.id"
+                (click)="setIntegrationFilter(item.id)"
+              >
+                {{ item.label }}
+                <span class="connect-filter-count">{{ getFilterCount(item.id) }}</span>
+              </button>
+            }
+          </div>
+          <p class="connect-toolbar-note">Two-way sync · connects in under 2 minutes</p>
+        </div>
+
+        <div class="connect-grid">
+          @for (item of visibleIntegrations(); track item.name) {
+            <article class="connect-card">
+              <div class="connect-card-top">
+                @if (item.logo) {
+                  <span class="connect-mark connect-mark-lg connect-mark-has-img">
+                    <img [src]="item.logo" [alt]="item.name" class="connect-logo-img" loading="lazy" decoding="async" />
+                  </span>
+                } @else {
+                  <span class="connect-mark connect-mark-lg" [style.background]="item.bg" [style.color]="item.fg">
+                    {{ item.mark }}
+                  </span>
+                }
+                <span class="connect-card-cat">{{ item.category }}</span>
+              </div>
+              <h3 class="connect-card-name">{{ item.name }}</h3>
+              <p class="connect-card-blurb">{{ item.blurb }}</p>
+              <p class="connect-card-sync">
+                <span>Syncs</span>
+                {{ item.sync }}
+              </p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         BOTANIC CASE STUDY / TESTIMONIAL BANNER
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="testimonial-section">
+      <div class="section-container">
+        <div class="testimonial-card">
+          <div class="testimonial-left">
+            <div class="testimonial-brand">
+              <span class="botanic-brand" aria-label="Botanic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="3.2" />
+                  <circle cx="12" cy="3.5" r="2.2" />
+                  <circle cx="12" cy="20.5" r="2.2" />
+                  <circle cx="3.5" cy="12" r="2.2" />
+                  <circle cx="20.5" cy="12" r="2.2" />
+                  <circle cx="6" cy="6" r="2.2" />
+                  <circle cx="18" cy="18" r="2.2" />
+                  <circle cx="6" cy="18" r="2.2" />
+                  <circle cx="18" cy="6" r="2.2" />
+                </svg>
+                <span class="botanic-text">Botanic.</span>
+              </span>
+            </div>
+
+            <blockquote class="testimonial-quote">
+              &ldquo;Synthio changed how our whole customer team operates. We went from long hold queues and flooded inboxes to resolving over 70% of calls and emails automatically &mdash; with human-grade quality across every channel.&rdquo;
+            </blockquote>
+
+            <div class="testimonial-author">
+              <div class="author-avatar-img">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <rect width="44" height="44" rx="8" fill="#F3ECE4" />
+                  <circle cx="22" cy="16" r="8" fill="#2D1A10" />
+                  <path d="M14 18c0-5 3.5-9 8-9s8 4 8 9v4c0 3-1 6-3 8h-10c-2-2-3-5-3-8v-4z" fill="#1C1009" />
+                  <circle cx="22" cy="17" r="6" fill="#F7D3B6" />
+                  <path d="M16 16c2-4 8-4 12 0v2c0 2-1 4-2 5h-8c-1-1-2-3-2-5v-2z" fill="#1C1009" />
+                  <path d="M9 38c0-7 6-12 13-12s13 5 13 12" fill="#3D2417" />
+                  <rect x="19.5" y="26" width="5" height="9" rx="1.5" fill="#FFFFFF" />
+                  <path d="M20 26l2 4 2-4" stroke="#714CB6" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </div>
+              <div class="author-details">
+                <b class="author-name">Sarah Chen</b>
+                <span class="author-role">Head of Customer Operations, Botanic</span>
+              </div>
+            </div>
+
+            <a class="testimonial-pill-btn" href="#cta">
+              <span>Read full case study</span>
+            </a>
+          </div>
+
+          <div class="testimonial-right">
+            <div class="testimonial-stat-item">
+              <span class="stat-val">3x</span>
+              <span class="stat-desc">Faster resolution</span>
+            </div>
+            <div class="testimonial-stat-item">
+              <span class="stat-val">72%</span>
+              <span class="stat-desc">Calls &amp; tickets automated</span>
+            </div>
+            <div class="testimonial-stat-item">
+              <span class="stat-val">Zero</span>
+              <span class="stat-desc">Customer hold time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PRICING SECTION WITH MONTHLY / YEARLY TOGGLE
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="pricing-section" id="pricing">
+      <div class="section-container pricing-container">
+        <!-- Section Header -->
+        <div class="section-header-center pricing-header-center">
+          <h2 class="pricing-main-heading">Simple, transparent pricing</h2>
+
+          <!-- Billing Switch: Monthly / Yearly -->
+          <div class="pricing-toggle-wrap">
+            <span class="billing-opt-label" [class.active]="!isYearly()">Monthly</span>
+            <button
+              class="billing-slider-track"
+              (click)="toggleYearly()"
+              type="button"
+              aria-label="Toggle billing duration"
+            >
+              <span class="billing-slider-thumb" [class.is-yearly]="isYearly()"></span>
+            </button>
+            <span class="billing-opt-label" [class.active]="isYearly()">Yearly (Save 20%)</span>
+          </div>
+        </div>
+
+        <!-- Pricing Cards Grid -->
+        <div class="pricing-cards-row modern-pricing-row">
+          <!-- Card 1: Startup -->
+          <div class="modern-price-card card-startup">
+            <div class="modern-card-header">
+              <div class="pricing-bolts-row" style="color: #18181B" aria-hidden="true">
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                  <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                </svg>
+              </div>
+              <h3 class="modern-plan-name">Startup</h3>
+              <div class="modern-price-hero">
+                <span class="modern-price-val">Free</span>
+              </div>
+              <p class="modern-price-sub">Forever. No credit card.</p>
+            </div>
+
+            <ul class="modern-feature-list">
+              <li><span class="modern-chk">✓</span> <span>100 autonomous voice call minutes/mo</span></li>
+              <li><span class="modern-chk">✓</span> <span>500 automated email replies</span></li>
+              <li><span class="modern-chk">✓</span> <span>1 AI agent persona</span></li>
+              <li><span class="modern-chk">✓</span> <span>Multi-channel chat widget</span></li>
+              <li><span class="modern-chk">✓</span> <span>Basic analytics &amp; reporting</span></li>
+            </ul>
+
+            <div class="modern-card-footer">
+              <a class="modern-plan-btn btn-black-pill" href="#top">
+                Sign up now
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Pro -->
+          <div class="modern-price-card card-pro">
+            <div class="modern-card-header">
+              <div class="pro-top-row">
+                <div class="pricing-bolts-row" style="color: #FFFFFF" aria-hidden="true">
+                  <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                    <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                  </svg>
+                  <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                    <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                  </svg>
+                </div>
+                <span class="most-popular-tag">MOST POPULAR</span>
+              </div>
+              <h3 class="modern-plan-name">Pro</h3>
+              <div class="modern-plan-userlimit">Allows 3+ users</div>
+              <div class="modern-price-hero">
+                <span class="modern-price-val">${{ isYearly() ? '480' : '600' }}</span>
+                <span class="modern-price-term">/mo</span>
+              </div>
+              <p class="modern-price-sub">
+                ${{ isYearly() ? '160' : '200' }}/mo per additional user. {{ isYearly() ? 'Billed annually.' : 'Billed monthly.' }}
+              </p>
+            </div>
+
+            <ul class="modern-feature-list">
+              <li><span class="modern-chk">✓</span> <span>Unlimited voice call minutes</span></li>
+              <li><span class="modern-chk">✓</span> <span>Unlimited automated email replies</span></li>
+              <li><span class="modern-chk">✓</span> <span>Unlimited conversation workflows</span></li>
+              <li><span class="modern-chk">✓</span> <span>10,000 multi-channel touchpoints/mo</span></li>
+              <li><span class="modern-chk">✓</span> <span>Custom voice cloning &amp; brand tone</span></li>
+              <li><span class="modern-chk">✓</span> <span>Two-way CRM sync (HubSpot, Salesforce)</span></li>
+              <li><span class="modern-chk">✓</span> <span>Omnichannel routing (WhatsApp, SMS, Slack)</span></li>
+              <li><span class="modern-chk">✓</span> <span>Advanced sentiment &amp; escalation analytics</span></li>
+              <li><span class="modern-chk">✓</span> <span>Dedicated account manager</span></li>
+            </ul>
+
+            <div class="modern-card-footer">
+              <a class="modern-plan-btn btn-white-pill" href="#top">
+                Sign up now
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Max -->
+          <div class="modern-price-card card-max">
+            <div class="modern-card-header">
+              <div class="pricing-bolts-row" style="color: #18181B" aria-hidden="true">
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                  <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                </svg>
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                  <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                </svg>
+                <svg width="13" height="16" viewBox="0 0 13 16" fill="currentColor" class="pricing-bolt-icon">
+                  <path d="M7.5 0L0 9.2h5.5L4.5 16 12.5 6.8H7l.5-6.8z" />
+                </svg>
+              </div>
+              <h3 class="modern-plan-name">Max</h3>
+              <div class="modern-plan-userlimit">Unlimited users per organization</div>
+              <div class="modern-price-hero">
+                <span class="modern-price-val val-call">Let's talk</span>
+              </div>
+              <p class="modern-price-sub">A flat fee for the entire organization.</p>
+            </div>
+
+            <div class="modern-included-label">All from the Pro, plus enterprise scale:</div>
+
+            <ul class="modern-feature-list">
+              <li><span class="modern-chk">✓</span> <span><b>Enterprise analytics</b> on an agent level</span></li>
+              <li><span class="modern-chk">✓</span> <span><b>Real-time queue</b> &amp; concurrency control</span></li>
+              <li><span class="modern-chk">✓</span> <span><b>Custom LLM</b> &amp; on-prem model hosting</span></li>
+              <li><span class="modern-chk">✓</span> <span><b>Dedicated SIP trunks</b> &amp; phone numbers</span></li>
+              <li><span class="modern-chk">✓</span> <span><b>SOC 2 Type II</b>, HIPAA &amp; custom SLAs</span></li>
+              <li><span class="modern-chk">✓</span> <span><b>White-glove onboarding</b> &amp; migration</span></li>
+            </ul>
+
+            <div class="modern-card-footer">
+              <a class="modern-plan-btn btn-black-pill" href="#top">
+                Schedule call
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FREQUENTLY ASKED QUESTIONS (ACCORDION)
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="faq-section" id="faq">
+      <div class="section-container faq-container">
+        <div class="section-header-center">
+          <h2 class="section-heading">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-accordion">
+          @for (item of faqItems; track item.q; let idx = $index) {
+            <div class="faq-card" [class.is-open]="openFaqIndex() === idx">
+              <button
+                class="faq-question-btn"
+                (click)="toggleFaq(idx)"
+                type="button"
+                [attr.aria-expanded]="openFaqIndex() === idx"
+              >
+                <span class="faq-q-text">{{ item.q }}</span>
+                <span class="faq-toggle-icon">{{ openFaqIndex() === idx ? '−' : '+' }}</span>
+              </button>
+              @if (openFaqIndex() === idx) {
+                <div class="faq-answer-body">
+                  <p>{{ item.a }}</p>
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <p class="faq-footer-note">
+          Have more questions? <a href="#pricing">Talk directly to our engineering team &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PRE-FOOTER CTA SHOWCASE
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="prefooter-cta-section" id="cta">
+      <div class="section-container">
+        <!-- Header Block -->
+        <div class="cta-showcase-header">
+          <h2 class="cta-showcase-title">Ready to deploy intelligent AI agents?</h2>
+          <p class="cta-showcase-desc">
+            Handle customer phone calls with ultra-low latency, triage high-volume support inboxes, and automate conversations across every channel.
+          </p>
+          <div class="cta-showcase-buttons">
+            <a class="cta-btn-primary" href="#pricing">
+              <span>Talk to sales</span>
+              <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="cta-btn-secondary" href="#top">
+              <span>Try our sandbox</span>
+              <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Live Dashboard Card Window -->
+        <div class="cta-dashboard-window">
+          <!-- Dashboard App Topbar -->
+          <div class="dash-topbar">
+            <div class="dash-topbar-left">
+              <div class="dash-brand-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 4h8v8H4V4zm0 10h6v6H4v-6zm8 2h8v4h-8v-4z" fill="#18181B" />
+                </svg>
+              </div>
+              <div class="dash-org-pill">
+                <span class="org-name">Synthio AI</span>
+                <span class="org-env-badge">Live Agents</span>
+                <span class="org-chevron">▾</span>
+              </div>
+            </div>
+
+            <nav class="dash-nav-links">
+              <span class="dash-link">Overview</span>
+              <span class="dash-link">Voice Calls</span>
+              <span class="dash-link">Email Queues</span>
+              <span class="dash-link is-active">Active Sessions</span>
+              <span class="dash-link">Integrations</span>
+              <span class="dash-link">Analytics</span>
+            </nav>
+
+            <div class="dash-topbar-right">
+              <div class="dash-user-avatar">
+                <span>S</span>
+                <span class="avatar-chevron">▾</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Main Content -->
+          <div class="dash-content-area">
+            <!-- Title & Actions Row -->
+            <div class="dash-title-row">
+              <h3 class="dash-page-title">Active Agent Sessions</h3>
+              <button class="dash-actions-btn" type="button">
+                <span>Deploy Agent</span>
+                <span class="btn-chevron">▾</span>
+              </button>
+            </div>
+
+            <!-- Sub-tabs: Voice Calls, Email Queues, Omnichannel Chat -->
+            <div class="dash-subtabs-row">
+              <button
+                type="button"
+                class="dash-subtab"
+                [class.is-active]="activeCtaTab() === 'voice'"
+                (click)="setCtaTab('voice')"
+              >
+                Voice Calls <span class="tab-count">14</span>
+              </button>
+              <button
+                type="button"
+                class="dash-subtab"
+                [class.is-active]="activeCtaTab() === 'email'"
+                (click)="setCtaTab('email')"
+              >
+                Email Queues <span class="tab-count">8</span>
+              </button>
+              <button
+                type="button"
+                class="dash-subtab"
+                [class.is-active]="activeCtaTab() === 'chat'"
+                (click)="setCtaTab('chat')"
+              >
+                Omnichannel Chat <span class="tab-count">23</span>
+              </button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="dash-filter-bar">
+              <div class="dash-search-input-wrap">
+                <svg class="dash-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search callers, emails, channels, or CRM records..."
+                  class="dash-search-input"
+                  readonly
+                />
+              </div>
+              <button class="dash-filter-btn" type="button">
+                <span>Add Filter</span>
+                <span class="filter-plus">+</span>
+              </button>
+            </div>
+
+            <!-- Data Table -->
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Caller / Contact <span class="col-sort">⇅</span></th>
+                    <th>Agent Status <span class="col-sort">⇅</span></th>
+                    <th>Task &amp; Channel <span class="col-sort">⇅</span></th>
+                    <th>AI Engine <span class="col-sort">⇅</span></th>
+                    <th>Timestamp <span class="col-sort">⇅</span></th>
+                    <th>Outcome / Latency <span class="col-sort">⇅</span></th>
+                    <th>Synced CRM / PBX <span class="col-sort">⇅</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (row of agentSessionsData; track row.id) {
+                    <tr>
+                      <td>
+                        <div class="cust-cell">
+                          <span class="cust-name">{{ row.customer }}</span>
+                          <span class="cust-id">{{ row.id }}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="status-pill-cell" [class]="row.statusType">
+                          <span class="status-dot-bullet"></span>
+                          <span>{{ row.status }}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="sync-cell">
+                          <span class="sync-dot-bullet"></span>
+                          <span>{{ row.task }}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="conn-type-badges">
+                          <span class="type-badge auto-badge">{{ row.engine }}</span>
+                        </div>
+                      </td>
+                      <td class="time-cell">{{ row.timestamp }}</td>
+                      <td class="time-cell" style="font-weight: 600; color: #166534">
+                        {{ row.result }}
+                      </td>
+                      <td>
+                        <div
+                          class="provider-badge"
+                          [style.backgroundColor]="row.providerBg"
+                          [style.color]="row.providerColor"
+                        >
+                          <span class="prov-icon-box">{{ row.providerIcon }}</span>
+                          <span class="prov-label">{{ row.provider }}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER WITH PARALLAX LANDSCAPE HILLS
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer
+    class="dark-footer"
+    (mousemove)="onFooterMouseMove($event)"
+    (mouseleave)="onFooterMouseLeave()"
+  >
+    <!-- Background Hill (bottom-footer.webp) - Layer 1 -->
+    <div class="footer-hills-back-wrap" aria-hidden="true">
+      <img
+        src="/bottom-footer.webp"
+        alt=""
+        class="footer-hill-img footer-hill-back"
+        width="3840"
+        height="1200"
+        loading="lazy"
+        decoding="async"
+        [style.transform]="'translateX(calc(-50% + ' + (footerMouseOffset().x * 12) + 'px)) translateY(' + (footerMouseOffset().y * 6) + 'px)'"
+      />
+    </div>
+
+    <div class="section-container footer-content-container">
+      <!-- Main Grid: Brand Column + 3 Link Columns -->
+      <div class="footer-ui-grid">
+        <!-- Brand Info -->
+        <div class="footer-ui-brand">
+          <a class="footer-ui-logo-row" href="#top" aria-label="Synthio home">
+            <img
+              src="/logos/logo-on-blue.webp"
+              alt="Synthio"
+              class="footer-brand-img"
+              width="112"
+              height="32"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <p class="footer-ui-tagline">
+            Build intelligent AI agents that handle customer calls, manage emails, and automate conversations across every channel.
+          </p>
+
+          <div class="footer-ui-socials">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="footer-ui-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="footer-ui-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 1: PRODUCT -->
+        <div class="footer-ui-col">
+          <h4 class="footer-ui-col-title">PRODUCT</h4>
+          <a class="footer-ui-link" href="#features">How it works</a>
+          <a class="footer-ui-link" href="#pricing">Pricing</a>
+          <a class="footer-ui-link" href="#faq">FAQ</a>
+          <a class="footer-ui-link" href="#features">Games</a>
+          <a class="footer-ui-link" href="#top">Chrome Extension</a>
+          <a class="footer-ui-link" href="#pricing">Start Free Trial</a>
+          <a class="footer-ui-link" href="#cta">LinkedIn Preview</a>
+        </div>
+
+        <!-- Column 2: COMPANY -->
+        <div class="footer-ui-col">
+          <h4 class="footer-ui-col-title">COMPANY</h4>
+          <a class="footer-ui-link" href="#top">About</a>
+          <a class="footer-ui-link" href="#top">Contact</a>
+          <a class="footer-ui-link" href="#top">Blog</a>
+          <a class="footer-ui-link" href="#top">Social</a>
+        </div>
+
+        <!-- Column 3: LEGAL -->
+        <div class="footer-ui-col">
+          <h4 class="footer-ui-col-title">LEGAL</h4>
+          <a class="footer-ui-link" href="#top">Privacy Policy</a>
+          <a class="footer-ui-link" href="#top">Terms of Service</a>
+          <a class="footer-ui-link" href="#top">Refund Policy</a>
+          <a class="footer-ui-link" href="#top">Extension Privacy</a>
+        </div>
+      </div>
+
+      <!-- Middle Status Indicator -->
+      <div class="footer-ui-status-row">
+        <span class="footer-ui-status-pill">
+          <span class="footer-ui-status-check" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span>All services are online</span>
+        </span>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-ui-bottom">
+        <p class="footer-ui-copy">&copy; 2026 Synthio. All rights reserved.</p>
+        <div class="footer-ui-actions">
+          <a class="footer-ui-login" href="#pricing">Log in</a>
+          <a class="footer-ui-trial" href="#pricing">
+            <span>Start free trial</span>
+            <span class="footer-ui-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Foreground Hill (top-footer.webp) - Layer 3 -->
+    <div class="footer-hills-front-wrap" aria-hidden="true">
+      <img
+        src="/top-footer.webp"
+        alt=""
+        class="footer-hill-img footer-hill-front"
+        width="3840"
+        height="1200"
+        loading="lazy"
+        decoding="async"
+        [style.transform]="'translateX(calc(-50% + ' + (footerMouseOffset().x * 24) + 'px)) translateY(' + (footerMouseOffset().y * 12) + 'px)'"
+      />
+    </div>
+  </footer>
+</div>
